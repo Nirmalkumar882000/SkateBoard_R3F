@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import Top from './HTML/Top'
+import { Canvas } from '@react-three/fiber'
+import Scene from './Scene'
 
 function App() {
+
+  const canvasContainerRef=useRef()
   return (
-    <h1 className=" flex justify-center items-center  text-3xl font-bold underline">
-    Hello world!
-  </h1>
+   <div  id="canvas-container"
+   className="w-screen h-[100svh] fixed touch-none max-w-[2000px] left-[50%] translate-x-[-50%]">
+    <Canvas camera={{
+      fov:15
+    }}>
+      <Scene canvasContainerRef={canvasContainerRef} />
+    </Canvas>
+   </div>
   )
 }
 
